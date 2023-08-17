@@ -1,0 +1,73 @@
+import java.util.*
+import java.io.*
+import java.math.*
+
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+fun main(args : Array<String>) {
+    val input = Scanner(System.`in`)
+    val L = input.nextInt()
+    val H = input.nextInt()
+
+    if (input.hasNextLine()) {
+        input.nextLine()
+    }
+
+    val T = input.nextLine()
+
+    val asciiLetters: MutableList<MutableList<String>> = mutableListOf()
+
+    for (letterIndex in 0 until 27) {
+        asciiLetters.add(mutableListOf())
+    }
+
+    for (i in 0 until H) {
+        val ROW = input.nextLine()
+
+        val chunks = ROW.chunked(L)
+
+        for ((chunkIndex, chunk) in chunks.withIndex()) {
+            asciiLetters[chunkIndex].add(chunk)
+        }
+    }
+
+    val asciiIndexes = mutableListOf<Int>()
+
+    for (letter in T) {
+        val asciiIndex = when (letter.code) {
+            in 65..90 -> {
+                letter.code - 65
+            }
+
+            in 97..122 -> {
+                letter.code - 97
+            }
+
+            else -> {
+                26
+            }
+        }
+
+        asciiIndexes.add(asciiIndex)
+    }
+
+    val letterRows = mutableListOf<String>()
+
+    for (i in 0 until H) {
+        letterRows.add("")
+    }
+
+    for (asciiIndex in asciiIndexes) {
+        val asciiLetter = asciiLetters[asciiIndex]
+
+        for (height in 0 until H) {
+            letterRows[height] += asciiLetter[height]
+        }
+    }
+
+    for (letterRow in letterRows) {
+        println(letterRow)
+    }
+}

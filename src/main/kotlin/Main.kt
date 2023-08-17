@@ -1,3 +1,4 @@
 fun main(args: Array<String>) {
-    ThereIsNoSpoon.spoonMe()
+//    ThereIsNoSpoon.spoonMe()
+    AsciiArt.asciiMe()
 }
