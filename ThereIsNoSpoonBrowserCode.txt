@@ -1,0 +1,77 @@
+import java.util.*
+import java.io.*
+import java.math.*
+
+/**
+ * Don't let the machines win. You are humanity's last hope...
+ **/
+fun main(args : Array<String>) {
+    val input = Scanner(System.`in`)
+    val width = input.nextInt() // the number of cells on the X axis
+    val height = input.nextInt() // the number of cells on the Y axis
+
+    val array2d: MutableList<MutableList<String>> = mutableListOf()
+
+    if (input.hasNextLine()) {
+        input.nextLine()
+    }
+
+    for (i in 0 until height) {
+        val line = input.nextLine() // width characters, each either 0 or .
+
+        val charArray = mutableListOf<String>()
+
+        for (char in line) {
+            charArray.add(char.toString())
+        }
+
+        array2d.add(charArray)
+    }
+
+
+    // Write an action using println()
+    // To debug: System.err.println("Debug messages...");
+
+    for (row in array2d) {
+        for ((index, node) in row.withIndex()) {  // Using withIndex() to get both index and the element
+            val nodeExists = node == "0"
+
+            if (nodeExists) {
+                // GET right and bottom
+                // print coordinates
+
+                // Check for valid right index
+                val rightIndex = index + 1
+                val rightNodeExists = rightIndex < row.size && row[rightIndex] == "0"
+
+                // Check for valid bottom index
+                val rowIndex = array2d.indexOf(row)
+                val bottomIndex = rowIndex + 1
+                val bottomNodeExists = bottomIndex < array2d.size && array2d[bottomIndex][index] == "0"
+
+                val rightNodeX = if (rightIndex < row.size && rightNodeExists) {
+                    rightIndex
+                } else {
+                    -1
+                }
+                val rightNodeY = if (rightIndex < row.size && rightNodeExists) {
+                    rowIndex
+                } else {
+                    -1
+                }
+                val bottomNodeX = if (bottomIndex < array2d.size && bottomNodeExists) {
+                    index
+                } else {
+                    -1
+                }
+                val bottomNodeY = if (bottomIndex < array2d.size && bottomNodeExists) {
+                    bottomIndex
+                } else {
+                    -1
+                }
+
+                println("$index $rowIndex $rightNodeX $rightNodeY $bottomNodeX $bottomNodeY")
+            }
+        }
+    }
+}
