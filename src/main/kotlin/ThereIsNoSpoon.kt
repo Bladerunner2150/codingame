@@ -1,28 +1,15 @@
 object ThereIsNoSpoon {
     // https://www.codingame.com/ide/puzzle/there-is-no-spoon-episode-1
     fun spoonMe() {
-        //    val input = Scanner(System.`in`)
-//    val width = input.nextInt() // the number of cells on the X axis
-//    val height = input.nextInt() // the number of cells on the Y axis
-
-        val height = 2
-        val width = 2
-
         val array2d: MutableList<MutableList<String>> = mutableListOf()
 
-//    if (input.hasNextLine()) {
-//        input.nextLine()
-//    }
-
         val lines = listOf(
-            "00",
-            "0."
-        ) // TEMP
+            "0.0.0",
+//            "00",
+//            "0."
+        )
 
-        for (i in 0 until height) {
-//        val line = input.nextLine() // width characters, each either 0 or .
-            val line = lines[i] // TEMP
-
+        for (line in lines) {
             val charArray = mutableListOf<String>()
 
             for (char in line) {
@@ -32,65 +19,43 @@ object ThereIsNoSpoon {
             array2d.add(charArray)
         }
 
-        for (row in array2d) {
-            println(row)
+        for ((rowIndex, row) in array2d.withIndex()) {
+            System.err.println(row)
 
-            for ((index, node) in row.withIndex()) {  // Using withIndex() to get both index and the element
+            for ((nodeIndex, node) in row.withIndex()) {
                 val nodeExists = node == "0"
 
-                println("Node exists at current position $index: $nodeExists")
+                System.err.println("Node exists at current position $nodeIndex: $nodeExists")
+
+                var rightNodeX = -1
+                var rightNodeY = -1
+                var bottomNodeX = -1
+                var bottomNodeY = -1
 
                 if (nodeExists) {
-                    // GET right and bottom
-                    // print coordinates
+                    for (adj in nodeIndex + 1..<row.size) {
+                        val adjacentNodeExists = row[adj] == "0"
 
-                    // Check for valid right index
-                    val rightIndex = index + 1
-                    val rightNodeExists = rightIndex < row.size && row[rightIndex] == "0"
-
-                    // Check for valid bottom index
-                    val rowIndex = array2d.indexOf(row)
-                    val bottomIndex = rowIndex + 1
-                    val bottomNodeExists = bottomIndex < array2d.size && array2d[bottomIndex][index] == "0"
-
-                    println("Node exists to the right of current position: $rightNodeExists")
-                    println("Node exists to the bottom of current position: $bottomNodeExists")
-
-                    val rightNodeX = if (rightIndex < row.size && rightNodeExists) {
-                        rightIndex
-                    } else {
-                        -1
-                    }
-                    val rightNodeY = if (rightIndex < row.size && rightNodeExists) {
-                        rowIndex
-                    } else {
-                        -1
-                    }
-                    val bottomNodeX = if (bottomIndex < array2d.size && bottomNodeExists) {
-                        index
-                    } else {
-                        -1
-                    }
-                    val bottomNodeY = if (bottomIndex < array2d.size && bottomNodeExists) {
-                        bottomIndex
-                    } else {
-                        -1
+                        if (adjacentNodeExists) {
+                            rightNodeX = adj
+                            rightNodeY = rowIndex
+                            break
+                        }
                     }
 
-                    println("$index $rowIndex $rightNodeX $rightNodeY $bottomNodeX $bottomNodeY")
+                    for (bot in rowIndex + 1..<array2d.size) {
+                        val bottomNodeExists = array2d[bot][nodeIndex] == "0"
+
+                        if (bottomNodeExists) {
+                            bottomNodeX = nodeIndex
+                            bottomNodeY = bot
+                            break
+                        }
+                    }
+
+                    println("$nodeIndex $rowIndex $rightNodeX $rightNodeY $bottomNodeX $bottomNodeY")
                 }
             }
         }
-
-//        val currentNodeX = 0
-//        val currentNodeY = 0
-//        val rightNodeX = 1
-//        val rightNodeY = 0
-//        val bottomNodeX = 0
-//        val bottomNodeY = 1
-//
-//
-//        // Three coordinates: a node, its right neighbor, its bottom neighbor
-//        println("$currentNodeX $currentNodeY $rightNodeX $rightNodeY $bottomNodeX $bottomNodeY")
     }
 }
