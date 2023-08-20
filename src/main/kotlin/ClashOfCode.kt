@@ -1,8 +1,15 @@
 object ClashOfCode {
     fun clash() {
-
+        
     }
-    
+
+//    fun clash() {
+//        val s = "blabibo"
+//        val krap = "bi"
+//
+//        s.replace(krap, "")
+//    }
+
 //    fun clash() {
 //        var s = "ayak"
 //

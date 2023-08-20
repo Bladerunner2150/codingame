@@ -4,6 +4,7 @@ fun main(args: Array<String>) {
 //    DnD.calc()
 //    ShadowsOfTheKnight.findBomb()
 //    Unary.encode()
+    MimeTypes.mimeOptimized()
 
 //    ClashOfCode.clash()
 }
