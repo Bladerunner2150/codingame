@@ -4,7 +4,10 @@ fun main(args: Array<String>) {
 //    DnD.calc()
 //    ShadowsOfTheKnight.findBomb()
 //    Unary.encode()
-    MimeTypes.mimeOptimized()
+//    MimeTypes.mimeOptimized()
+//    Defibrillators.defib()
+//    DontPanic.beDepressed()
+    SpreadSheet.calc()
 
 //    ClashOfCode.clash()
 }
