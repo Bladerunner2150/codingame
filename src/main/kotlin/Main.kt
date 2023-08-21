@@ -9,8 +9,9 @@ fun main(args: Array<String>) {
 //    DontPanic.beDepressed()
 //    SpreadSheet.calc()
 //    HorseRacing.findStrength()
+    DrunkenBishop.burp()
 
-    KotlinCertificate.exercise4()
+//    KotlinCertificate.exercise4()
 
 //    ClashOfCode.clash()
 }
