@@ -8,7 +8,9 @@ fun main(args: Array<String>) {
 //    Defibrillators.defib()
 //    DontPanic.beDepressed()
 //    SpreadSheet.calc()
-    HorseRacing.findStrength()
+//    HorseRacing.findStrength()
+
+    KotlinCertificate.exercise4()
 
 //    ClashOfCode.clash()
 }
