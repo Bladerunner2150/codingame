@@ -7,7 +7,8 @@ fun main(args: Array<String>) {
 //    MimeTypes.mimeOptimized()
 //    Defibrillators.defib()
 //    DontPanic.beDepressed()
-    SpreadSheet.calc()
+//    SpreadSheet.calc()
+    HorseRacing.findStrength()
 
 //    ClashOfCode.clash()
 }
