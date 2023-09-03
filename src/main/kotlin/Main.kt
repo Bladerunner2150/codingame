@@ -9,7 +9,8 @@ fun main(args: Array<String>) {
 //    DontPanic.beDepressed()
 //    SpreadSheet.calc()
 //    HorseRacing.findStrength()
-    DrunkenBishop.burp()
+//    DrunkenBishop.burp()
+    DeathFirstSearch.ep1()
 
 //    KotlinCertificate.exercise4()
 
