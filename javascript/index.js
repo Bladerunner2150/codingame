@@ -1,1 +1,3 @@
-console.log('Hello, world!');
+import { createTypeWriterArt } from "./puzzles/retro-typewriter-art.js";
+
+createTypeWriterArt();
