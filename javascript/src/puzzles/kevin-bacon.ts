@@ -1,3 +1,5 @@
+// https://www.codingame.com/training/easy/six-degrees-of-kevin-bacon
+
 export function kevinBacon() {
     const movieCastsData = [
         'Change of Habit: Elvis Presley, Mary Tyler Moore, Barbara McNair, Jane Elliot, Ed Asner',

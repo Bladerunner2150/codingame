@@ -1,3 +1,5 @@
+// https://www.codingame.com/training/easy/retro-typewriter-art
+
 export function createTypeWriterArt() {
     const input =
         '1sp 1/ 1bS 1_ 1/ 1bS nl 1( 1sp 1o 1. 1o 1sp 1) nl 1sp 1> 1sp 1^ 1sp 1< nl 2sp 3|';
