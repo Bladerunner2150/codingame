@@ -1,24 +1,24 @@
 export function kevinBacon() {
     const movieCastsData = [
-        "Change of Habit: Elvis Presley, Mary Tyler Moore, Barbara McNair, Jane Elliot, Ed Asner",
-        "JFK: Kevin Costner, Kevin Bacon, Tommy Lee Jones, Laurie Metcalf, Gary Oldman, Ed Asner",
-        "Sleepers: Kevin Bacon, Jason Patric, Brad Pitt, Robert De Niro, Dustin Hoffman"
+        'Change of Habit: Elvis Presley, Mary Tyler Moore, Barbara McNair, Jane Elliot, Ed Asner',
+        'JFK: Kevin Costner, Kevin Bacon, Tommy Lee Jones, Laurie Metcalf, Gary Oldman, Ed Asner',
+        'Sleepers: Kevin Bacon, Jason Patric, Brad Pitt, Robert De Niro, Dustin Hoffman',
     ];
 
     // ! Begin add to script
     const movieCasts = [];
-    let graph = {};
+    let graph: { [key: string]: string[] } = {};
     // ! End add to script
 
-    const actorName = "Elvis Presley";
-    const n = 3;
+    const actorName = 'Elvis Presley';
+    // const n = 3;
 
     for (let i = 0; i < movieCastsData.length; i++) {
         const movieCast = movieCastsData[i];
 
         // ! Begin add to script
-        const movieName = movieCast.split(": ")[0];
-        const actors = movieCast.split(": ")[1].split(", ");
+        const movieName = movieCast.split(': ')[0];
+        const actors = movieCast.split(': ')[1].split(', ');
         movieCasts.push({ movieName, actors });
         // ! End add to script
     }
@@ -48,12 +48,12 @@ export function kevinBacon() {
     let baconNumber = -1;
 
     while (queue.length > 0) {
-        console.error("Queue: ", queue);
-        console.error("Visited: ", visited);
-        const { actor, degree } = queue.shift();
+        console.error('Queue: ', queue);
+        console.error('Visited: ', visited);
+        const { actor, degree } = queue.shift()!;
 
-        if (actor === "Kevin Bacon") {
-            console.error("Kevin Bacon found!");
+        if (actor === 'Kevin Bacon') {
+            console.error('Kevin Bacon found!');
             baconNumber = degree;
             break;
         }
